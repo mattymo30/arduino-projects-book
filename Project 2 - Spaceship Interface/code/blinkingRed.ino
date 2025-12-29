@@ -1,0 +1,56 @@
+int switchState = 0;
+
+void setup() {
+  pinMode(3, OUTPUT);
+  pinMode(4, OUTPUT);
+  pinMode(5, OUTPUT);
+  pinMode(2, INPUT);
+
+
+  for (int i = 0; i < 10; i++) {
+    digitalWrite(4, LOW);
+    digitalWrite(5, LOW);
+
+    delay(100);
+
+    digitalWrite(4, HIGH);
+    digitalWrite(5, HIGH);
+
+    delay(100);
+  }
+
+}
+
+void loop() {
+  switchState = digitalRead(2);
+
+  if (switchState == LOW) {
+    // button is not pressed, stable state
+    digitalWrite(3, HIGH);
+    digitalWrite(4, LOW);
+    digitalWrite(5, LOW);
+  }
+
+  else {
+    // button has been pressed
+    digitalWrite(3, LOW);
+    digitalWrite(4, LOW);
+    digitalWrite(5, HIGH);
+
+    delay(1000);
+
+    digitalWrite(4, HIGH);
+    digitalWrite(5, LOW);
+
+    delay(1000);
+
+    digitalWrite(3, LOW);
+    digitalWrite(4, HIGH);
+    digitalWrite(5, HIGH);
+
+    delay(2000);
+
+    digitalWrite(5, LOW);
+
+  }
+}
