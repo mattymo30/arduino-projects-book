@@ -14,7 +14,7 @@ void loop() {
     // button is not pressed, stable state
     digitalWrite(3, HIGH);
     digitalWrite(4, LOW);
-    digitalWrite(4, LOW);
+    digitalWrite(5, LOW);
   }
 
   else {
